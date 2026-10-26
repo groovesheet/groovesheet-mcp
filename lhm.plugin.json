@@ -1,0 +1,160 @@
+{
+  "author": "Kelin Studio",
+  "cloudEndpoint": "https://api.groovesheet.net/mcp/public",
+  "description": "Sheet music, MIDI and isolated stems for songs from GrooveSheet's library of AI transcriptions, in any MCP app. Remote server, no sign-in.",
+  "homepage": "https://www.groovesheet.net/developers",
+  "identifier": "groovesheet",
+  "name": "GrooveSheet",
+  "prompts": [],
+  "resources": [],
+  "tools": [
+    {
+      "name": "search_songs",
+      "title": "Search GrooveSheet songs",
+      "description": "Search GrooveSheet's public library of AI-transcribed songs by title or artist.\n\nReturns up to 10 songs per page with id, title, artist, the separated\ninstruments, whether the song has sheet music / MIDI / stems, and the song\npage URL. Track-level flags only: call get_song for which specific parts are\nscored, since a song can have sheet music for one part and only MIDI for another.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "description": "Song title and/or artist, e.g. 'Easy On Me Adele'.",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Query",
+            "type": "string"
+          },
+          "instrument": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Only songs with this part: drums, piano, bass, guitar, vocals or other.",
+            "title": "Instrument"
+          },
+          "format": {
+            "anyOf": [
+              {
+                "enum": [
+                  "sheet",
+                  "midi",
+                  "stems"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Only songs offering this format. 'sheet' = readable sheet music (MusicXML/PDF), 'midi' = MIDI transcription, 'stems' = isolated audio. With an instrument, 'sheet' and 'midi' are checked for that specific part.",
+            "title": "Format"
+          },
+          "page": {
+            "default": 1,
+            "description": "1-based results page (10 songs per page).",
+            "maximum": 50,
+            "minimum": 1,
+            "title": "Page",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "search_songsArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true,
+        "title": "search_songsDictOutput"
+      },
+      "annotations": {
+        "title": "Search GrooveSheet songs",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_song",
+      "title": "Get GrooveSheet song details",
+      "description": "Details for one GrooveSheet song: every part and what notation it has.\n\nEach part is `sheet_music` (readable score, PDF, Guitar Pro), `midi_only`\n(MIDI transcription, no score) or `audio_only` (isolated stem). Includes the\nsong page URL and, for each scored part, its sheet music page.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "description": "Track id (UUID) or slug from search_songs, e.g. 'easy-on-me-adele-0fff6be3'.",
+            "title": "Track Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "track_id"
+        ],
+        "title": "get_songArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true,
+        "title": "get_songDictOutput"
+      },
+      "annotations": {
+        "title": "Get GrooveSheet song details",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_download_links",
+      "title": "Get GrooveSheet download links",
+      "description": "Links for one part of a GrooveSheet library song, to hand to the user.\n\nAlways returns the song page. For a part with sheet music it adds the sheet\nmusic page and direct PDF and Guitar Pro links, which work without an\naccount. Stem audio, MIDI and MusicXML downloads need a free GrooveSheet\naccount on the song page; this tool does not return raw file URLs for them.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "description": "Track id (UUID) or slug from search_songs.",
+            "title": "Track Id",
+            "type": "string"
+          },
+          "instrument": {
+            "description": "Part to get: drums, piano, bass, guitar, vocals or other.",
+            "title": "Instrument",
+            "type": "string"
+          }
+        },
+        "required": [
+          "track_id",
+          "instrument"
+        ],
+        "title": "get_download_linksArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true,
+        "title": "get_download_linksDictOutput"
+      },
+      "annotations": {
+        "title": "Get GrooveSheet download links",
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "version": "2.2.0",
+  "tags": [
+    "music",
+    "sheet-music",
+    "midi",
+    "drums",
+    "education"
+  ]
+}

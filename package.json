@@ -1,0 +1,10 @@
+{
+  "name": "groovesheet-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sheet music, MIDI and isolated stems for songs from GrooveSheet's library of AI transcriptions, in any MCP app. Remote server, no sign-in.",
+  "homepage": "https://www.groovesheet.net/developers",
+  "repository": "https://github.com/groovesheet/groovesheet-mcp",
+  "license": "MIT",
+  "author": "Kelin Studio <groovesheet@gmail.com>"
+}
