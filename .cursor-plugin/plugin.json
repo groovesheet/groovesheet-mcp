@@ -1,0 +1,15 @@
+{
+  "name": "groovesheet",
+  "displayName": "GrooveSheet",
+  "version": "1.0.0",
+  "description": "Sheet music, MIDI and isolated stems for songs: search GrooveSheet's library of AI transcriptions and get the score, PDF and Guitar Pro file. No sign-in.",
+  "author": {
+    "name": "Kelin Studio",
+    "email": "groovesheet@gmail.com"
+  },
+  "homepage": "https://www.groovesheet.net/developers",
+  "repository": "https://github.com/groovesheet/groovesheet-mcp",
+  "license": "MIT",
+  "keywords": ["sheet music", "drums", "piano", "bass", "guitar", "midi", "stems", "music", "mcp"],
+  "logo": "assets/logo.png"
+}

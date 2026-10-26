@@ -1,0 +1,14 @@
+{
+  "name": "groovesheet",
+  "version": "1.0.0",
+  "description": "Sheet music, MIDI and isolated stems for songs from GrooveSheet's library of AI transcriptions. No sign-in.",
+  "author": {
+    "name": "Kelin Studio",
+    "email": "groovesheet@gmail.com",
+    "url": "https://www.groovesheet.net"
+  },
+  "homepage": "https://www.groovesheet.net/developers",
+  "repository": "https://github.com/groovesheet/groovesheet-mcp",
+  "license": "MIT",
+  "keywords": ["sheet music", "drums", "piano", "midi", "stems", "music"]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "groovesheet": {
+      "type": "http",
+      "url": "https://api.groovesheet.net/mcp/public"
+    }
+  }
+}
