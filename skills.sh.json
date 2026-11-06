@@ -1,0 +1,11 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "GrooveSheet",
+      "description": "Sheet music, chord charts, MIDI and stems for any song, from GrooveSheet's AI transcription library and MCP server.",
+      "skills": ["groovesheet"]
+    }
+  ]
+}

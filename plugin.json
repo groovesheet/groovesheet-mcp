@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "groovesheet",
+  "version": "1.1.0",
+  "description": "Sheet music, chord charts, MIDI and isolated stems for songs from GrooveSheet's library of AI transcriptions, plus transcription of the user's own recordings. Bundles the GrooveSheet MCP server (remote, no sign-in) and the groovesheet skill.",
+  "author": {
+    "name": "Kelin Studio Pte. Ltd.",
+    "email": "support@groovesheet.net",
+    "url": "https://www.groovesheet.net"
+  },
+  "homepage": "https://www.groovesheet.net/developers",
+  "repository": "https://github.com/groovesheet/groovesheet-mcp",
+  "license": "MIT",
+  "keywords": [
+    "music",
+    "sheet-music",
+    "transcription",
+    "drums",
+    "piano",
+    "bass",
+    "guitar",
+    "chords",
+    "midi",
+    "stems",
+    "mcp"
+  ],
+  "extensions": {
+    "net.groovesheet": {
+      "mcp": {
+        "public": "https://api.groovesheet.net/mcp/public",
+        "account": "https://api.groovesheet.net/mcp",
+        "docs": "https://www.groovesheet.net/mcp/docs"
+      },
+      "rest": {
+        "openapi": "https://api.groovesheet.net/openapi.json",
+        "sandbox": "https://api.groovesheet.net/sandbox",
+        "sdk": "@groovesheet/sdk",
+        "cli": "groovesheet"
+      },
+      "llms": "https://www.groovesheet.net/llms.txt",
+      "agents": "https://www.groovesheet.net/agents.md",
+      "auth": "https://www.groovesheet.net/auth.md"
+    }
+  }
+}
