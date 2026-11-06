@@ -50,6 +50,7 @@ All tools are read-only except `create_upload_link`, which creates the link and 
 
 - Docs: https://www.groovesheet.net/developers/docs
 - REST API, SDK and CLI: https://www.groovesheet.net/developers/docs/api, `npm i @groovesheet/sdk` ([source](https://github.com/groovesheet/groovesheet-sdk)), sandbox `https://api.groovesheet.net/sandbox`
+- ChatGPT plugin package (the ZIP uploaded to the plugin directory): [`chatgpt-plugin/`](chatgpt-plugin/), built release at the Releases tab
 - For coding agents: [AGENTS.md](AGENTS.md), https://www.groovesheet.net/llms.txt, https://www.groovesheet.net/agents.md
 - Official MCP Registry: `net.groovesheet/mcp`
 - Support: groovesheet@gmail.com

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "groovesheet",
+  "version": "1.0.0",
+  "description": "Find sheet music, MIDI and isolated stems for songs in GrooveSheet's library of AI transcriptions.",
+  "author": {
+    "name": "Kelin Studio",
+    "email": "groovesheet@gmail.com",
+    "url": "https://www.groovesheet.net"
+  },
+  "homepage": "https://www.groovesheet.net/developers",
+  "keywords": ["sheet music", "drums", "piano", "bass", "guitar", "midi", "stems", "music"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "GrooveSheet",
+        "shortDescription": "Sheet music, MIDI and stems",
+        "longDescription": "GrooveSheet is a library of songs transcribed by AI into readable sheet music, MIDI and isolated stems (drums, bass, piano, guitar, vocals and the rest of the mix).\n\nAsk ChatGPT for a song and GrooveSheet finds it, tells you exactly which parts have a readable score and which have MIDI only, and gives you the links: the song page to play every separated part in the browser, and the sheet music page for each scored part.\n\nExamples:\n- \"Find drum sheet music for Dynamite by BTS.\"\n- \"Which parts of Easy On Me by Adele have sheet music?\"\n- \"What Bruno Mars songs are on GrooveSheet?\"\n\nReading and playing need no account. Downloads (PDF, Guitar Pro, stems, MIDI, MusicXML) need a free GrooveSheet account on the song page. This app only searches the library and returns links: it never uploads, changes or deletes anything.",
+        "developerName": "Kelin Studio",
+        "category": "Education",
+        "capabilities": [],
+        "websiteURL": "https://www.groovesheet.net",
+        "supportURL": "https://www.groovesheet.net/help",
+        "privacyPolicyURL": "https://www.groovesheet.net/privacy-policy",
+        "termsOfServiceURL": "https://www.groovesheet.net/terms",
+        "defaultPrompt": [
+          "Find drum sheet music for Dynamite by BTS",
+          "Which parts of Easy On Me by Adele have sheet music?",
+          "What Bruno Mars songs are on GrooveSheet?"
+        ],
+        "brandColor": "#012FA7",
+        "brandColorDark": "#3D6BFF",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo.png",
+        "screenshots": ["./assets/screenshot-score.png"]
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find a song's drum score and its download links",
+              "prompt": "Find drum sheet music for Dynamite by BTS.",
+              "tools_triggered": "search_songs, get_download_links",
+              "expected_behavior": "Finds Dynamite by BTS and returns the song page and the drums sheet music page for the drum part. Notes that downloads (PDF, Guitar Pro, stems, MIDI, MusicXML) need a free account on the song page."
+            },
+            {
+              "description": "Report which parts of a song are scored",
+              "prompt": "Which parts of Easy On Me by Adele have readable sheet music?",
+              "tools_triggered": "search_songs, get_song",
+              "expected_behavior": "Lists drums, piano, bass and the chord chart as having sheet music, and gives the song page link."
+            },
+            {
+              "description": "Browse an artist's songs in the library",
+              "prompt": "What Bruno Mars songs are on GrooveSheet?",
+              "tools_triggered": "search_songs",
+              "expected_behavior": "Lists the Bruno Mars songs in the library (Talking to the Moon, Just the Way You Are, When I Was Your Man, Grenade) with a link to each song page."
+            },
+            {
+              "description": "Get the PDF for one scored part",
+              "prompt": "Get me the piano PDF for The Scientist by Coldplay.",
+              "tools_triggered": "search_songs, get_download_links",
+              "expected_behavior": "Returns the song page and the piano sheet music page for The Scientist, and says the PDF downloads there after a free sign-in."
+            },
+            {
+              "description": "Be accurate when a part has MIDI only",
+              "prompt": "Is there piano sheet music for Bohemian Rhapsody on GrooveSheet?",
+              "tools_triggered": "search_songs, get_song",
+              "expected_behavior": "Says the piano part of Bohemian Rhapsody has a MIDI transcription but no readable score, and that drums, bass, guitar and the chord chart do have sheet music. Does not call the piano MIDI sheet music."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated question",
+              "prompt": "What's the weather in Tokyo tomorrow?"
+            },
+            {
+              "description": "Music theory question that needs no song lookup",
+              "prompt": "Explain what a time signature of 6/8 means."
+            },
+            {
+              "description": "Buying an instrument",
+              "prompt": "Which electronic drum kit should I buy for under $500?"
+            }
+          ]
+        },
+        "demo_recording_url": "https://pub-31cac56987f04db680b63b72ad1bc75a.r2.dev/site/mcp/groovesheet-in-claude-16x9.mp4",
+        "commerce": false,
+        "commerce_description": ""
+      },
+      "publication": {
+        "release_notes": "First release: search GrooveSheet's library and get sheet music, PDF, Guitar Pro and song page links. No sign-in needed."
+      }
+    }
+  }
+}
