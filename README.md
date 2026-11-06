@@ -56,4 +56,4 @@ All tools are read-only except `create_upload_link`, which creates the link and 
 - Support: groovesheet@gmail.com
 - Privacy: https://www.groovesheet.net/privacy-policy
 
-This repo holds the client configuration, a skill (`npx skills add groovesheet/groovesheet-mcp`), an Agent Plugins manifest and the plugin manifests for Cursor, Claude Code and LobeHub. The server itself is hosted by GrooveSheet.
+This repo holds the client configuration, two skills (`npx skills add groovesheet/groovesheet-mcp`: `groovesheet` for chat apps, `groovesheet-api` for code), an Agent Plugins manifest and the plugin manifests for Cursor, Claude Code and LobeHub. The server itself is hosted by GrooveSheet.

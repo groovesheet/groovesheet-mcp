@@ -4,8 +4,11 @@
   "groupings": [
     {
       "title": "GrooveSheet",
-      "description": "Sheet music, chord charts, MIDI and stems for any song, from GrooveSheet's AI transcription library and MCP server.",
-      "skills": ["groovesheet"]
+      "description": "Sheet music, chord charts, MIDI and stems for any song, from GrooveSheet's AI transcription library, over MCP or the REST API, SDK and CLI.",
+      "skills": [
+        "groovesheet",
+        "groovesheet-api"
+      ]
     }
   ]
 }
